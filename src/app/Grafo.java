@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Grafo {
     
-    static int TOTAL_VERTICES = 8;
+    public static int TOTAL_VERTICES = 8;
     private Map<Integer, Stack<Integer>> map = new HashMap<Integer, Stack<Integer>>();
     
     public Map<Integer, Stack<Integer>> getMap() {
@@ -77,7 +77,7 @@ public class Grafo {
     
     public Stack<Integer> geraCaminho(int pai[]) {
     	Stack<Integer> resp = new Stack<Integer>();
-    	int pos = 7;
+    	int pos = TOTAL_VERTICES - 1;
     	
     	while(pai[pos] != -1) {
     		resp.push(pos);
