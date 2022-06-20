@@ -5,8 +5,17 @@ import java.util.*;
 public class Grafo {
     
     static int TOTAL_VERTICES = 8;
+    private Map<Integer, Stack<Integer>> map = new HashMap<Integer, Stack<Integer>>();
     
-    static boolean bfs(int rGrafo[][], int s, int t, int pai[]) {
+    public Map<Integer, Stack<Integer>> getMap() {
+		return map;
+	}
+
+	public void setMap(Map<Integer, Stack<Integer>> map) {
+		this.map = map;
+	}
+
+	private static boolean bfs(int rGrafo[][], int s, int t, int pai[]) {
 
         boolean[] visitado = new boolean[TOTAL_VERTICES];
         
@@ -32,7 +41,7 @@ public class Grafo {
         return (visitado[t] == true);
     }
 
-    public static int encontraMaximoCaminhosDisjuntos(int grafo[][], int s, int t) {
+    public int encontraMaximoCaminhosDisjuntos(int grafo[][], int s, int t) {
         int u, v;
 
         int[][] rGrafo = new int[TOTAL_VERTICES][TOTAL_VERTICES];
@@ -60,8 +69,22 @@ public class Grafo {
             }
             
             max_flow += caminho_flow;
+            map.put(max_flow, geraCaminho(pai));
         }
         
         return max_flow;
+    }
+    
+    public Stack<Integer> geraCaminho(int pai[]) {
+    	Stack<Integer> resp = new Stack<Integer>();
+    	int pos = 7;
+    	
+    	while(pai[pos] != -1) {
+    		resp.push(pos);
+    		pos = pai[pos];
+    	}
+		resp.push(pos);
+    	
+    	return resp;
     }
 }
