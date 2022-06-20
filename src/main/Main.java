@@ -34,7 +34,7 @@ public class Main {
         int t = Grafo.TOTAL_VERTICES - 1;
         int max_caminhos = g.encontraMaximoCaminhosDisjuntos(grafo, s, t);
 
-        System.out.println("\nExiste um máximo de " + max_caminhos + " caminhos disjuntos em arestas.\n");
+        System.out.println("\nExiste um máximo de " + max_caminhos + " caminhos disjuntos em arestas do vértice " + s + " ao vértice " + t + ".\n");
         System.out.print("Caminhos: ");
         for(int i=1; i<=max_caminhos; i++) {
         	System.out.print("[ ");
