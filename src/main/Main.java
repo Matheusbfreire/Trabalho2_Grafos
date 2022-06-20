@@ -1,10 +1,6 @@
 package main;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.Stack;
-
+import java.util.*;
 import app.Grafo;
 
 public class Main {
